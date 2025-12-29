@@ -9,7 +9,11 @@ type FormData = {
   query: string;
 };
 
-const WordSearchForm = () => {
+type WordSearchFormProps = {
+  onSearch: (query: string) => void;
+};
+
+const WordSearchForm = ({ onSearch }: WordSearchFormProps) => {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: {
       query: '',
@@ -21,6 +25,7 @@ const WordSearchForm = () => {
 
   const onSubmit = (data: FormData) => {
     console.log('フォーム送信データ：', data);
+    onSearch(data.query);
     reset();
   };
 
