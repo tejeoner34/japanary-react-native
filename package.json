@@ -16,6 +16,7 @@
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
+    "@tanstack/react-query": "^5.90.16",
     "@testing-library/react-native": "^13.3.3",
     "@types/jest": "29.5.14",
     "expo": "~54.0.30",
@@ -44,6 +45,7 @@
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.91.2",
     "@types/react": "~19.1.0",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",

@@ -1,19 +1,35 @@
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import WordSearchForm from '@/components/ui/word-search-form';
+import { useDictionary } from '@/hooks/use-dictionary';
 
 export default function DictionaryScreen() {
+  const [query, setQuery] = useState('');
+
+  const { dictionary, ai, examples } = useDictionary(query);
+
+  const handleSearch = (search: string) => {
+    setQuery(search);
+  };
+
   return (
     <ThemedView style={styles.page}>
-      <div className="z-100 fixed bottom-0 right-0 left-0 p-5 bg-backgroundSecondary max-w-md w-full md:relative md:p-0"></div>
       <div className="flex flex-col gap-3">
         <ThemedText>Japanese Dictionary</ThemedText>
         <ThemedText>Search for a word in Kanji, Hiragana or Katakana. Ex: 辞書</ThemedText>
       </div>
+
+      {/* 検索結果 */}
+      {dictionary.isLoading && <ThemedText>Loading...</ThemedText>}
+      {dictionary.isError && <ThemedText>Error occurred</ThemedText>}
+
+      {dictionary.data && <ThemedText>{JSON.stringify(dictionary.data)}</ThemedText>}
+
       <View style={styles.footer}>
-        <WordSearchForm />
+        <WordSearchForm onSearch={handleSearch} />
       </View>
     </ThemedView>
   );
