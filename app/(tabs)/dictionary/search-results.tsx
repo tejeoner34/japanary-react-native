@@ -8,6 +8,7 @@ import ExampleItem from '@/components/ui/example.-item';
 import Section from '@/components/ui/section';
 import WordSearchForm from '@/components/ui/word-search-form';
 import { useDictionary } from '@/hooks/use-dictionary';
+
 export default function SearchResultsScreen() {
   const router = useRouter();
   const { query } = useLocalSearchParams<{ query?: string }>();
