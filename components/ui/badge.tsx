@@ -1,6 +1,6 @@
+import { StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { useThemeColor } from '@/hooks/use-theme-color';
-import { StyleSheet, View } from 'react-native';
 
 type BadgeVariant = 'common' | 'jlpt';
 

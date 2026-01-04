@@ -1,8 +1,8 @@
+import { Pressable, StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import Badge from '@/components/ui/badge';
 import { useThemeColor } from '@/hooks/use-theme-color';
 import { SearchResult } from '@/services/api';
-import { Pressable, StyleSheet, View } from 'react-native';
 
 type Props = {
 	result: SearchResult;

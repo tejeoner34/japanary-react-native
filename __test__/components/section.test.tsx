@@ -1,7 +1,7 @@
-import Section from '@/components/ui/section';
-import * as themeHook from '@/hooks/use-theme-color';
 import React from 'react';
 import { Text } from 'react-native';
+import Section from '@/components/ui/section';
+import * as themeHook from '@/hooks/use-theme-color';
 import { render } from '../test-utils';
 
 describe('Section', () => {

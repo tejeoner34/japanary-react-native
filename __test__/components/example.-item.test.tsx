@@ -1,6 +1,6 @@
+import React from 'react';
 import ExampleItem from '@/components/ui/example.-item';
 import { ExampleSentence } from '@/services/api';
-import React from 'react';
 import { render } from '../test-utils';
 
 describe('ExampleItem', () => {

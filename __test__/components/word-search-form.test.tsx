@@ -1,6 +1,6 @@
+import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@/__test__/test-utils';
 import WordSearchForm from '@/components/ui/word-search-form';
-import React from 'react';
 
 describe('WordSearchForm', () => {
 	const mockOnSearch = jest.fn();

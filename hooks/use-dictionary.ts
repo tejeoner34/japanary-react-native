@@ -1,5 +1,5 @@
-import { dictionaryApi } from '@/services/api';
 import { useQuery } from '@tanstack/react-query';
+import { dictionaryApi } from '@/services/api';
 
 export const useDictionary = (query: string) => {
 	const enabled = !!query.trim();

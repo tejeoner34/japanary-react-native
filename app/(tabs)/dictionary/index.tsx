@@ -1,9 +1,8 @@
+import { useRouter } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
-
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import WordSearchForm from '@/components/ui/word-search-form';
-import { useRouter } from 'expo-router';
 
 export default function DictionaryScreen() {
 	const router = useRouter();

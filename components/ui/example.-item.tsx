@@ -1,7 +1,7 @@
+import { StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { useThemeColor } from '@/hooks/use-theme-color';
 import { ExampleSentence } from '@/services/api';
-import { StyleSheet, View } from 'react-native';
 
 type Props = {
 	example: ExampleSentence;
