@@ -4,34 +4,36 @@ import { ExampleSentence } from '@/services/api';
 import { StyleSheet, View } from 'react-native';
 
 type Props = {
-  example: ExampleSentence;
+	example: ExampleSentence;
 };
 
 export default function ExampleItem({ example }: Props) {
-  const subTextColor = useThemeColor({}, 'icon');
+	const subTextColor = useThemeColor({}, 'icon');
 
-  return (
-    <View style={styles.container}>
-      <ThemedText style={styles.japanese}>
-        {example.japanese.map((j) => j.word).join('')}
-      </ThemedText>
-      <ThemedText style={[styles.english, { color: subTextColor }]}>{example.english}</ThemedText>
-    </View>
-  );
+	return (
+		<View style={styles.container}>
+			<ThemedText style={styles.japanese}>
+				{example.japanese.map((j) => j.word).join('')}
+			</ThemedText>
+			<ThemedText style={[styles.english, { color: subTextColor }]}>
+				{example.english}
+			</ThemedText>
+		</View>
+	);
 }
 
 export const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 8,
-    gap: 4,
-  },
+	container: {
+		paddingVertical: 8,
+		gap: 4,
+	},
 
-  japanese: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
+	japanese: {
+		fontSize: 16,
+		lineHeight: 24,
+	},
 
-  english: {
-    fontSize: 14,
-  },
+	english: {
+		fontSize: 14,
+	},
 });

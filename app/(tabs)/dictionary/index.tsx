@@ -6,40 +6,42 @@ import WordSearchForm from '@/components/ui/word-search-form';
 import { useRouter } from 'expo-router';
 
 export default function DictionaryScreen() {
-  const router = useRouter();
+	const router = useRouter();
 
-  const handleSearch = (query: string) => {
-    router.push({
-      pathname: '/dictionary/search-results',
-      params: { query },
-    });
-  };
+	const handleSearch = (query: string) => {
+		router.push({
+			pathname: '/dictionary/search-results',
+			params: { query },
+		});
+	};
 
-  return (
-    <ThemedView style={styles.page}>
-      <div className="flex flex-col gap-3">
-        <ThemedText>Japanese Dictionary</ThemedText>
-        <ThemedText>Search for a word in Kanji, Hiragana or Katakana. Ex: 辞書</ThemedText>
-      </div>
+	return (
+		<ThemedView style={styles.page}>
+			<div className="flex flex-col gap-3">
+				<ThemedText>Japanese Dictionary</ThemedText>
+				<ThemedText>
+					Search for a word in Kanji, Hiragana or Katakana. Ex: 辞書
+				</ThemedText>
+			</div>
 
-      <View style={styles.footer}>
-        <WordSearchForm onSearch={handleSearch} />
-      </View>
-    </ThemedView>
-  );
+			<View style={styles.footer}>
+				<WordSearchForm onSearch={handleSearch} />
+			</View>
+		</ThemedView>
+	);
 }
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 16,
-    padding: 16,
-  },
-  footer: {
-    position: 'fixed',
-    bottom: 60,
-    width: '100%',
-  },
+	page: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		gap: 16,
+		padding: 16,
+	},
+	footer: {
+		position: 'fixed',
+		bottom: 60,
+		width: '100%',
+	},
 });

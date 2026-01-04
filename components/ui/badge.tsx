@@ -5,30 +5,38 @@ import { StyleSheet, View } from 'react-native';
 type BadgeVariant = 'common' | 'jlpt';
 
 type Props = {
-  variant: BadgeVariant;
-  children: string | string[];
+	variant: BadgeVariant;
+	children: string | string[];
 };
 
 export default function Badge({ variant, children }: Props) {
-  const backgroundColor = useThemeColor({}, variant === 'common' ? 'badge1' : 'inputBackground');
-  const textColor = useThemeColor({}, variant === 'common' ? 'background' : 'text');
+	const backgroundColor = useThemeColor(
+		{},
+		variant === 'common' ? 'badge1' : 'inputBackground',
+	);
+	const textColor = useThemeColor(
+		{},
+		variant === 'common' ? 'background' : 'text',
+	);
 
-  return (
-    <View style={[styles.badge, { backgroundColor }]}>
-      <ThemedText style={[styles.text, { color: textColor }]}>{children}</ThemedText>
-    </View>
-  );
+	return (
+		<View style={[styles.badge, { backgroundColor }]}>
+			<ThemedText style={[styles.text, { color: textColor }]}>
+				{children}
+			</ThemedText>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  badge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
-  },
+	badge: {
+		paddingHorizontal: 8,
+		paddingVertical: 4,
+		borderRadius: 4,
+	},
 
-  text: {
-    fontSize: 12,
-    fontWeight: '500',
-  },
+	text: {
+		fontSize: 12,
+		fontWeight: '500',
+	},
 });

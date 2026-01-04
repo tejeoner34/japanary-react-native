@@ -10,54 +10,58 @@ import WordSearchForm from '@/components/ui/word-search-form';
 import { useDictionary } from '@/hooks/use-dictionary';
 
 export default function SearchResultsScreen() {
-  const router = useRouter();
-  const { query } = useLocalSearchParams<{ query?: string }>();
+	const router = useRouter();
+	const { query } = useLocalSearchParams<{ query?: string }>();
 
-  const keyword = Array.isArray(query) ? query[0] : query ?? '';
+	const keyword = Array.isArray(query) ? query[0] : (query ?? '');
 
-  const { dictionary, ai, examples } = useDictionary(keyword);
+	const { dictionary, ai, examples } = useDictionary(keyword);
 
-  const handleSearch = (newQuery: string) => {
-    if (!newQuery.trim()) return;
+	const handleSearch = (newQuery: string) => {
+		if (!newQuery.trim()) return;
 
-    router.replace({
-      pathname: '/dictionary/search-results',
-      params: { query: newQuery },
-    });
-  };
+		router.replace({
+			pathname: '/dictionary/search-results',
+			params: { query: newQuery },
+		});
+	};
 
-  return (
-    <ThemedView style={styles.page}>
-      <ScrollView contentContainerStyle={styles.content}>
-        {/* Dictionary */}
-        {dictionary.isLoading && <ThemedText>Loading...</ThemedText>}
+	return (
+		<ThemedView style={styles.page}>
+			<ScrollView contentContainerStyle={styles.content}>
+				{/* Dictionary */}
+				{dictionary.isLoading && <ThemedText>Loading...</ThemedText>}
 
-        {dictionary.isError && <ThemedText>Error occurred</ThemedText>}
+				{dictionary.isError && <ThemedText>Error occurred</ThemedText>}
 
-        {dictionary.data?.map((result) => (
-          <DictionaryEntry key={result.slug} result={result} onSeeAlso={handleSearch} />
-        ))}
+				{dictionary.data?.map((result) => (
+					<DictionaryEntry
+						key={result.slug}
+						result={result}
+						onSeeAlso={handleSearch}
+					/>
+				))}
 
-        {/* Example Sentences */}
-        {examples.data && (
-          <Section title="Example Sentences">
-            {examples.data.map((example, index) => (
-              <ExampleItem key={index} example={example} />
-            ))}
-          </Section>
-        )}
-      </ScrollView>
-      <WordSearchForm onSearch={handleSearch} initialValue={keyword} />
-    </ThemedView>
-  );
+				{/* Example Sentences */}
+				{examples.data && (
+					<Section title="Example Sentences">
+						{examples.data.map((example, index) => (
+							<ExampleItem key={index} example={example} />
+						))}
+					</Section>
+				)}
+			</ScrollView>
+			<WordSearchForm onSearch={handleSearch} initialValue={keyword} />
+		</ThemedView>
+	);
 }
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-  },
-  content: {
-    padding: 16,
-    gap: 16,
-  },
+	page: {
+		flex: 1,
+	},
+	content: {
+		padding: 16,
+		gap: 16,
+	},
 });
