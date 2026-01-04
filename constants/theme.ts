@@ -19,6 +19,7 @@ export const Colors = {
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
     placeholder: '#667085',
+    badge1: '#25a45aff',
   },
   dark: {
     text: '#ECEDEE',
@@ -30,6 +31,7 @@ export const Colors = {
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
     placeholder: '#8E9499',
+    badge1: '#25a45aff',
   },
 };
 

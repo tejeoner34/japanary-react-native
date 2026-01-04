@@ -1,4 +1,5 @@
 import { ThemedText } from '@/components/themed-text';
+import Badge from '@/components/ui/badge';
 import { useThemeColor } from '@/hooks/use-theme-color';
 import { SearchResult } from '@/services/api';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -27,11 +28,9 @@ export default function DictionaryEntry({ result, onSeeAlso }: Props) {
         ))}
 
         <View style={styles.badges}>
-          {result.isCommon && <ThemedText style={styles.common}>Common</ThemedText>}
+          {result.isCommon && <Badge variant="common">Common</Badge>}
           {result.jlptLevels.length > 0 && (
-            <ThemedText style={[styles.jlpt, { color: subTextColor }]}>
-              JLPT {result.jlptLevels.join(', ')}
-            </ThemedText>
+            <Badge variant="jlpt">JLPT {result.jlptLevels.join(', ')}</Badge>
           )}
         </View>
       </View>
@@ -82,15 +81,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     marginTop: 4,
-  },
-
-  common: {
-    fontSize: 12,
-    fontWeight: '500',
-  },
-
-  jlpt: {
-    fontSize: 12,
   },
 
   sense: {

@@ -28,8 +28,6 @@ export default function SearchResultsScreen() {
 
   return (
     <ThemedView style={styles.page}>
-      <WordSearchForm onSearch={handleSearch} initialValue={keyword} />
-
       <ScrollView contentContainerStyle={styles.content}>
         {/* Dictionary */}
         {dictionary.isLoading && <ThemedText>Loading...</ThemedText>}
@@ -49,6 +47,7 @@ export default function SearchResultsScreen() {
           </Section>
         )}
       </ScrollView>
+      <WordSearchForm onSearch={handleSearch} initialValue={keyword} />
     </ThemedView>
   );
 }
