@@ -11,12 +11,13 @@ type FormData = {
 
 type WordSearchFormProps = {
   onSearch: (query: string) => void;
+  initialValue?: string;
 };
 
-const WordSearchForm = ({ onSearch }: WordSearchFormProps) => {
+const WordSearchForm = ({ onSearch, initialValue }: WordSearchFormProps) => {
   const { control, handleSubmit, reset } = useForm<FormData>({
     defaultValues: {
-      query: '',
+      query: initialValue ?? '',
     },
   });
 

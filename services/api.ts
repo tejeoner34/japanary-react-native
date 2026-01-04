@@ -64,7 +64,7 @@ export const dictionaryApi = {
    */
   search: async (query: string) => {
     if (!query.trim()) {
-      return { results: [] };
+      return [];
     }
     return apiCall<SearchResult[]>(`/dictionary?keyword=${encodeURIComponent(query)}`);
   },

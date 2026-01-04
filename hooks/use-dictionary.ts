@@ -14,7 +14,7 @@ export const useDictionary = (query: string) => {
   const aiQuery = useQuery({
     queryKey: ['dictionary', 'ai', query],
     queryFn: () => dictionaryApi.aiQuery(query),
-    enabled,
+    enabled: false,
     staleTime: 1000 * 60 * 30,
   });
 
@@ -29,5 +29,6 @@ export const useDictionary = (query: string) => {
     dictionary: dictionaryQuery,
     ai: aiQuery,
     examples: examplesQuery,
+    fetchAi: aiQuery.refetch,
   };
 };
