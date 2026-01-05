@@ -1,0 +1,15 @@
+image: node:20
+
+stages:
+  - check
+
+cache:
+  paths:
+    - node_modules/
+
+check:
+  stage: check
+  script:
+    - npm ci
+    - npx expo --version
+    - npx expo doctor
