@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedTextInput } from '@/components/themed-text-input';
 import { EMAIL_OPTIONS, PASSWORD_OPTIONS } from '@/constants/form-validation';
@@ -105,6 +105,7 @@ export default function LoginScreen() {
 			>
 				<ThemedText style={styles.buttonText}>
 					{loginMutation.isPending ? 'ログイン中…' : 'ログイン'}
+					{loginMutation.isPending && <ActivityIndicator />}
 				</ThemedText>
 			</Pressable>
 

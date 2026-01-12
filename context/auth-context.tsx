@@ -6,7 +6,9 @@ interface AuthProviderProps {
 	children: ReactNode;
 }
 
-const AuthContext = createContext<{ user: User | null }>({ user: null });
+export const AuthContext = createContext<{ user: User | null }>({
+	user: null,
+});
 
 export function AuthProvider({ children }: AuthProviderProps) {
 	const [user, setUser] = useState<User | null>(null);
@@ -21,7 +23,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 		return unsub;
 	}, []);
 
-	if (loading) return null; // or splash
+	if (loading) return <div>loading</div>; // or splash
 
 	return (
 		<AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
