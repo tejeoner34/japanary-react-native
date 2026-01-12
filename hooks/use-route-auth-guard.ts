@@ -2,15 +2,13 @@ import { useRouter, useSegments } from 'expo-router';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '@/context/auth-context';
 
-const PRIVATE_PATHS = ['/explore', '/profile'];
-
-export const useRouteAuthGuard = (currentPath: string = '') => {
+export const useRouteAuthGuard = () => {
 	const { user } = useContext(AuthContext);
 	const segments = useSegments();
 	const router = useRouter();
 
 	useEffect(() => {
-		const inAprivatePath = PRIVATE_PATHS.includes(currentPath);
+		const inAprivatePath = segments[1] === '(private)';
 		const inAuthPath = segments[0] === '(auth)';
 
 		if (!user && inAprivatePath) {
@@ -18,5 +16,5 @@ export const useRouteAuthGuard = (currentPath: string = '') => {
 		} else if (user && inAuthPath) {
 			router.replace('/(tabs)/explore');
 		}
-	}, [user, segments, currentPath]);
+	}, [user, segments]);
 };
