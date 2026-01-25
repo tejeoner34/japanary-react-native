@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		borderBottomWidth: 1,
 		borderBottomColor: '#eee',
+		marginBottom: 10,
+		borderRadius: 8,
 	},
 	deckName: { fontSize: 18, fontWeight: '500' },
 	rightActionContainer: {
@@ -30,13 +32,6 @@ const styles = StyleSheet.create({
 		width: 100,
 		height: '100%',
 	},
-	selectButton: {
-		width: 100,
-		height: '100%',
-		backgroundColor: '#007AFF',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
 	actionText: { color: 'white', fontWeight: 'bold' },
-	defaultBadge: { color: '#007AFF', fontSize: 12, marginTop: 4 },
+	defaultBadge: { color: '#343a40', fontSize: 12, marginTop: 4 },
 });

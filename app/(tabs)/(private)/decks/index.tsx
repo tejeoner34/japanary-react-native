@@ -8,6 +8,7 @@ export default function TabTwoScreen() {
 	return (
 		<ThemedView style={styles.page}>
 			<FlatList
+				style={styles.list}
 				data={decks}
 				keyExtractor={(item) => item.id!}
 				renderItem={({ item }) => <DeckListItem deck={item} />}
@@ -24,6 +25,10 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		gap: 16,
 		padding: 16,
+	},
+	list: {
+		flex: 1,
+		width: '100%',
 	},
 	footer: {
 		position: 'fixed',
