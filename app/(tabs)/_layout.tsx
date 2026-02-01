@@ -25,7 +25,7 @@ function TabsContent() {
 		<Tabs
 			screenOptions={{
 				tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-				headerShown: false,
+				headerShown: true,
 				tabBarButton: HapticTab,
 			}}
 		>
@@ -39,7 +39,7 @@ function TabsContent() {
 				}}
 			/>
 			<Tabs.Screen
-				name="decks"
+				name="(private)/decks"
 				options={{
 					title: 'Decks',
 					tabBarIcon: ({ color }) => (

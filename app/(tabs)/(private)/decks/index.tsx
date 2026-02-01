@@ -1,10 +1,31 @@
+import { useMemo } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { ThemedView } from '@/components/themed-view';
 import DeckListItem from '@/components/ui/deck-list-item';
+import DeckOptionsButton from '@/components/ui/deck-options-button';
 import { useDecks } from '@/hooks/use-decks';
 
 export default function TabTwoScreen() {
 	const { decks, isLoading } = useDecks();
+	const moreOptions = useMemo(
+		() => [
+			{
+				label: 'Create deck',
+				isDestructive: false,
+				action: () => {
+					console.log('Create deck');
+				},
+			},
+			{
+				label: 'Create flashcard',
+				isDestructive: false,
+				action: () => {
+					console.log('Create flashcard');
+				},
+			},
+		],
+		[],
+	);
 	return (
 		<ThemedView style={styles.page}>
 			<FlatList
@@ -14,6 +35,7 @@ export default function TabTwoScreen() {
 				renderItem={({ item }) => <DeckListItem deck={item} />}
 				refreshing={isLoading}
 			/>
+			<DeckOptionsButton actions={moreOptions} />
 		</ThemedView>
 	);
 }
