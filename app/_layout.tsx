@@ -12,7 +12,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 import { config } from '@/tamagui.config';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
-import { TamaguiProvider } from 'tamagui';
+import { PortalProvider, TamaguiProvider } from 'tamagui';
 
 export const unstable_settings = {
   anchor: '(tabs)',
@@ -42,11 +42,13 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <TamaguiProvider config={config} defaultTheme={colorScheme!}>
-          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <TamaguiProvider config={config} defaultTheme={colorScheme!}>
+            <PortalProvider> 
             <ToastProvider>
               <AppToast />
               <ToastViewport flexDirection="column" top={20} left={0} right={0} />
+
               <Stack>
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 <Stack.Screen name="(auth)" options={{ headerShown: false }} />
@@ -54,8 +56,9 @@ export default function RootLayout() {
               </Stack>
               <StatusBar style="auto" />
             </ToastProvider>
-          </ThemeProvider>
-        </TamaguiProvider>
+            </PortalProvider>
+          </TamaguiProvider>
+        </ThemeProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

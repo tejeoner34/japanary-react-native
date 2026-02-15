@@ -7,6 +7,7 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { AuthContext } from '@/context/auth-context';
 import { DecksContextProvider } from '@/context/decks-context';
+import { CreateFormDialogProvider } from '@/context/form-dialog-context';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useDecks } from '@/hooks/use-decks';
 import { Button } from 'tamagui';
@@ -59,7 +60,9 @@ function TabsContent() {
 export default function TabLayout() {
   return (
     <DecksContextProvider>
-      <TabsContent />
+      <CreateFormDialogProvider>
+        <TabsContent />
+      </CreateFormDialogProvider>
     </DecksContextProvider>
   );
 }

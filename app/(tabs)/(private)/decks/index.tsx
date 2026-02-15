@@ -2,11 +2,13 @@ import { ThemedView } from '@/components/themed-view';
 import DeckListItem from '@/components/ui/deck-list-item';
 import DeckOptionsButton from '@/components/ui/deck-options-button';
 import { useDecks } from '@/hooks/use-decks';
+import { useFormDialog } from '@/hooks/use-form-dialog';
 import { useMemo } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 export default function TabTwoScreen() {
   const { decks, isLoading } = useDecks();
+  const { openDeckForm } = useFormDialog();
   const moreOptions = useMemo(
     () => [
       {
@@ -14,6 +16,7 @@ export default function TabTwoScreen() {
         isDestructive: false,
         action: () => {
           console.log('Create deck');
+          openDeckForm();
         },
       },
       {

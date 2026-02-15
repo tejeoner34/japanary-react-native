@@ -16,7 +16,9 @@ export const config = createTamagui({
   animations,
   media: {
     ...defaultConfig.media,
-    // add your own media queries here, if wanted
+  },
+  settings: {
+    onlyAllowShorthands: false, // settingsの中に移動
   },
 });
 

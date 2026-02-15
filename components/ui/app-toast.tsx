@@ -39,7 +39,7 @@ export function AppToast() {
   return (
     <Toast
       key={toast.id}
-      duration={100000}
+      duration={toast.duration ?? 1000}
       bg={preset.bg}
       animation="100ms"
       enterStyle={{ x: -20, opacity: 0 }}
